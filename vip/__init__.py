@@ -63,7 +63,8 @@ def load_vip(modelid='resnet50'):
     modelcfg = omegaconf.OmegaConf.load(configpath)
     cleancfg = cleanup_config(modelcfg)
     rep = hydra.utils.instantiate(cleancfg)
-    rep = torch.nn.DataParallel(rep)
-    vip_state_dict = torch.load(modelpath, map_location=torch.device(device))['vip']
+    # rep = torch.nn.DataParallel(rep)
+    # print(device)
+    vip_state_dict = {'.'.join(k.split('.')[1:]): v for k, v in torch.load(modelpath, map_location=torch.device(device))['vip'].items()}
     rep.load_state_dict(vip_state_dict)
     return rep    
