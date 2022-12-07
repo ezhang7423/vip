@@ -22,9 +22,7 @@ setup(
     long_description=read('README.md'),
     author='Jason Ma (Meta AI)',
     install_requires=[
-    'gdown==4.4.0', 
-    'torch<=1.10.2,>=1.7.1',
-    'torchvision<=0.11.3,>=0.8.2',
+    'gdown==4.4.0',         
     'omegaconf==2.1.1',
     'hydra-core==1.1.1',
     'pillow==9.0.1',
